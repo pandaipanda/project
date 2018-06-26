@@ -1,21 +1,33 @@
+/**
+ * Copyright (c) 2017-present, Daniel
+ * All rights reserved.
+ *
+ * @flow
+ */
 
-import React,{PureComponent} from 'react'
-import {StyleSheet,View,Image,Text} from 'react-native'
+import React, {PureComponent} from 'react'
+import {StyleSheet, View, Image, Text} from 'react-native'
 
 type Props = {
 
 }
 
 type State = {
-	
+
 }
 
-class WebScene extends PureComponent<Props,State>{
+class WebScene extends PureComponent<Props, State> {
 
-    render(){
-        return(
-            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <Text>WebScene</Text>
+    constructor(props: Object) {
+        super(props)
+
+        alert('url:   ' + this.props.navigation.state.params.url)
+    }
+
+    render() {
+        return (
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <Text>Web</Text>
             </View>
         )
     }
