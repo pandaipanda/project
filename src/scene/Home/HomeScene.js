@@ -19,9 +19,9 @@ class HomeScene extends PureComponent<>{
 				alert('dsfsd')
 			}}/>
 		),
-		// headerRight:(
-		// 	<Navigationltem icon={require('../../img/mine/icon_navigationItem_message_white@2x.png')}/>
-		// )
+		headerRight:(
+			<Navigationltem icon={require('../../img/mine/icon_navigationItem_message_white@2x.png')}/>
+		)
     })
 
     render(){

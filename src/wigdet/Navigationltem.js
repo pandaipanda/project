@@ -22,7 +22,7 @@ class Navigationltem extends PureComponent<Props,State>{
             <Text style={[styles.title,titleStytle]}>{title}</Text>
         )
         let iconElement = icon && (
-            <Image source={icon} style{[styles.icon,iconStyle]}/>
+            <Image source={icon} style={[styles.icon,iconStyle]}/>
         )
         return(
             <TouchableOpacity onPress={onPress} style={styles.container}>
