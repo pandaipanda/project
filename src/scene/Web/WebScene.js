@@ -6,7 +6,7 @@
  */
 
 import React, {PureComponent} from 'react'
-import {StyleSheet, View, Image, Text} from 'react-native'
+import {StyleSheet, View, Image, Text, WebView, InteractionManager} from 'react-native'
 
 type Props = {
 
@@ -14,20 +14,35 @@ type Props = {
 
 type State = {
 
-}
+};
 
 class WebScene extends PureComponent<Props, State> {
 
-    constructor(props: Object) {
-        super(props)
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    })
 
-        alert('url:   ' + this.props.navigation.state.params.url)
+    componentDidMount(){
+        InteractionManager.runAfterInteractions(()=>{
+            this.props.navigation.setParams({title: '加载中'})
+        })
+    }
+
+    onLoadEnd = (e) => {
+        let title = e.nativeEvent.title
+        if(title.length>0){
+            this.props.navigation.setParams({title: title})
+        }
     }
 
     render() {
         return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text>Web</Text>
+            <View style={styles.container}>
+                <WebView 
+                    style={styles.WebView}
+                    source={{uri: this.props.navigation.state.params.url}}
+                    onLoadEnd={this.onLoadEnd}
+                />
             </View>
         )
     }
@@ -35,7 +50,12 @@ class WebScene extends PureComponent<Props, State> {
 }
 
 const styles = StyleSheet.create({
-
+    container:{
+        flex: 1,
+    },
+    WebView:{
+        flex: 1,
+    }
 })
 
 export default WebScene

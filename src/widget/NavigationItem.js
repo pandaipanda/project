@@ -18,7 +18,7 @@ type Props = {
 
 type State = {
 
-}
+};
 
 class NavigationItem extends PureComponent<Props, State> {
 

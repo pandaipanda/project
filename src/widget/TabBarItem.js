@@ -17,7 +17,7 @@ type Props = {
 
 type State = {
 
-}
+};
 
 class TabBarItem extends PureComponent<Props, State> {
 
