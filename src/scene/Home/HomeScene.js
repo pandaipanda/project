@@ -120,7 +120,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
-
     },
     searchIcon: {
         width: 20,
