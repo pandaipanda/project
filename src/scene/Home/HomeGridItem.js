@@ -9,7 +9,7 @@ import React, {PureComponent} from 'react'
 import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native'
 import screen from '../../common/screen'
 import color from '../../widget/color'
-import {Heading2,Heading3} from '../../widget/Text'
+import {Heading2, Heading3} from '../../widget/Text'
 
 type Props = {
     info: Object,
@@ -18,22 +18,22 @@ type Props = {
 
 type State = {
 
-};
+}
 
 class HomeGridItem extends PureComponent<Props, State> {
 
     render() {
-        let {info,onPress} = this.props
+        let {info, onPress} = this.props
 
         let title = info.maintitle
         let color = info.typeface_color
         let subtitle = info.deputytitle
-        let imageUrl = info.imageurl.replace('w.h','120.0')
+        let imageUrl = info.imageurl.replace('w.h', '120.0')
 
         return (
             <TouchableOpacity style={styles.container} onPress={onPress}>
                 <View>
-                    <Heading2 style={{color:color,marginBottom:10}}>{title}</Heading2>
+                    <Heading2 style={{color: color, marginBottom: 10}}>{title}</Heading2>
                     <Heading3>{subtitle}</Heading3>
                 </View>
                 <Image style={styles.icon} source={{uri: imageUrl}} />
@@ -44,20 +44,20 @@ class HomeGridItem extends PureComponent<Props, State> {
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        width:screen.width / 2 - StyleSheet.hairlineWidth,
-        height:screen.width / 4,
-        borderRightWidth: StyleSheet.hairlineWidth,
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderColor: color.border,
+        width: screen.width / 2 - StyleSheet.hairlineWidth,
+        height: screen.width / 4,
         backgroundColor: 'white',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderRightWidth: StyleSheet.hairlineWidth,
+        borderColor: color.border,
     },
-    icon:{
-        width:screen.width / 5,
-        height:screen.width / 5,
+    icon: {
+        width: screen.width / 5,
+        height: screen.width / 5,
         marginLeft: 10,
     }
 })

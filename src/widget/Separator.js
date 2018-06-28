@@ -7,21 +7,33 @@
 
 import React, {PureComponent} from 'react'
 import {StyleSheet, View, Image, Text} from 'react-native'
-import color from './color'
 import screen from '../common/screen'
+import color from '../widget/color'
 
-class Separator extends PureComponent<Props> {
+type Props = {
+
+}
+
+type State = {
+
+}
+
+class Separator extends PureComponent<Props, State> {
 
     render() {
         return (
-        	<View style={{width: screen.width, height: StyleSheet.hairlineWidth, backgroundColor: color.border}} />
+            <View style={styles.separator} />
         )
     }
 
 }
 
 const styles = StyleSheet.create({
-
+    separator: {
+        width: screen.width,
+        height: StyleSheet.hairlineWidth,
+        backgroundColor: color.border,
+    }
 })
 
 export default Separator

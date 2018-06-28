@@ -7,44 +7,44 @@
 
 import React, {PureComponent} from 'react'
 import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native'
+import {Heading3} from '../../widget/Text'
 import screen from '../../common/screen'
 
 type Props = {
-    title: string,
-    icon: any,
     onPress: Function,
+    icon: any,
+    title: string,
 }
 
 type State = {
 
 }
 
-class HomeMenuItem extends PureComponent<Props, State> {
+class OrderMenuItem extends PureComponent<Props, State> {
 
     render() {
-        let {title, icon, onPress} = this.props
+        let {onPress, icon, title} = this.props
         return (
-            <TouchableOpacity onPress={onPress} style={styles.container}>
-                <Image source={icon} style={styles.icon} />
-                <Text>{title}</Text>
+            <TouchableOpacity style={styles.container} onPress={onPress}>
+                <Image source={icon} resizeMode='contain' style={styles.icon} />
+                <Heading3>{title}</Heading3>
             </TouchableOpacity>
         )
     }
-
 }
 
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: screen.width / 5,
+        width: screen.width / 4,
         height: screen.width / 5,
     },
     icon: {
-        width: screen.width / 9,
-        height: screen.width / 9,
+        width: 30,
+        height: 30,
         margin: 5,
-    }
+    },
 })
 
-export default HomeMenuItem
+export default OrderMenuItem

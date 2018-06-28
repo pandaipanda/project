@@ -19,7 +19,7 @@ type Props = {
 
 type State = {
     currentPage: number,
-};
+}
 
 class HomeMenuView extends PureComponent<Props, State> {
 

@@ -12,25 +12,21 @@ type Props = {
 
 }
 
-type State = {
-
-};
-
-class WebScene extends PureComponent<Props, State> {
+class WebScene extends PureComponent<Props> {
 
     static navigationOptions = ({navigation}) => ({
         title: navigation.state.params.title
     })
 
-    componentDidMount(){
-        InteractionManager.runAfterInteractions(()=>{
+    componentDidMount() {
+        InteractionManager.runAfterInteractions(() => {
             this.props.navigation.setParams({title: '加载中'})
         })
     }
 
     onLoadEnd = (e) => {
         let title = e.nativeEvent.title
-        if(title.length>0){
+        if (title.length > 0) {
             this.props.navigation.setParams({title: title})
         }
     }
@@ -38,22 +34,21 @@ class WebScene extends PureComponent<Props, State> {
     render() {
         return (
             <View style={styles.container}>
-                <WebView 
-                    style={styles.WebView}
+                <WebView
+                    style={styles.webView}
                     source={{uri: this.props.navigation.state.params.url}}
                     onLoadEnd={this.onLoadEnd}
                 />
             </View>
         )
     }
-
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
     },
-    WebView:{
+    webView: {
         flex: 1,
     }
 })

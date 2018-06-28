@@ -6,35 +6,37 @@
  */
 
 import React, {PureComponent} from 'react'
-import {StyleSheet, View, Image, Text, TouchableOpacity, ViewPropTypes} from 'react-native'
+import {StyleSheet, View, Image, Text, ViewPropsTypes, TouchableOpacity} from 'react-native'
 
 type Props = {
     title?: string,
-    titleStytle?: ViewPropTypes.style,
+    titleStyle?: ViewPropsTypes.styles,
+
     icon?: any,
-    iconStyle?: ViewPropTypes.style,
+    iconStyle?: ViewPropsTypes.styles,
+
     onPress?: Function,
 }
 
 type State = {
 
-};
+}
 
 class NavigationItem extends PureComponent<Props, State> {
 
     render() {
-        let {title, titleStytle, icon, iconStyle, onPress} = this.props
+        let titleElement = this.props.title && (
+            <Text style={[styles.title, this.props.titleStyle]}>{this.props.title}</Text>
+        )
 
-        let titleElement = title && (
-            <Text style={[styles.title, titleStytle]}>{title}</Text>
+        let iconElement = this.props.icon && (
+            <Image style={[styles.icon, this.props.iconStyle]} source={this.props.icon} />
         )
-        let iconElement = icon && (
-            <Image source={icon} style={[styles.icon, iconStyle]} />
-        )
+
         return (
-            <TouchableOpacity onPress={onPress} style={styles.container}>
-                {titleElement}
+            <TouchableOpacity onPress={this.props.onPress}>
                 {iconElement}
+                {titleElement}
             </TouchableOpacity>
         )
     }
@@ -42,19 +44,14 @@ class NavigationItem extends PureComponent<Props, State> {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+    icon: {
+        width: 27,
+        height: 27,
+        margin: 8,
     },
     title: {
         fontSize: 15,
         color: '#333333',
-        margin: 8,
-    },
-    icon: {
-        width: 27,
-        height: 27,
         margin: 8,
     }
 })

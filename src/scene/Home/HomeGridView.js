@@ -7,30 +7,30 @@
 
 import React, {PureComponent} from 'react'
 import {StyleSheet, View, Image, Text} from 'react-native'
-import HomeGridItem from './HomeGridItem'
 import color from '../../widget/color'
+import HomeGridItem from './HomeGridItem'
 
 type Props = {
     infos: Array<Object>,
-    onPress: Function,
+    onGridSelected: Function,
 }
 
 type State = {
 
-};
+}
 
 class HomeGridView extends PureComponent<Props, State> {
 
     render() {
-        let {infos,onPress} = this.props
+        let {infos, onGridSelected} = this.props
         return (
             <View style={styles.container}>
-                {infos.map((info,index)=>(
+                {infos.map((info, index) => (
                     <HomeGridItem
                         key={index}
                         info={info}
-                        onPress={()=>{
-                            onPress(index)
+                        onPress={() => {
+                            onGridSelected(index)
                         }}
                     />
                 ))}
@@ -41,7 +41,7 @@ class HomeGridView extends PureComponent<Props, State> {
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         borderTopWidth: StyleSheet.hairlineWidth,

@@ -14,23 +14,23 @@ type Props = {
 }
 
 type State = {
-
-};
+    
+}
 
 class SpacingView extends PureComponent<Props, State> {
 
     render() {
         return (
-            <View style={styles.container}/>
+            <View style={styles.spacing}/>
         )
-    }
+     }
 
 }
 
 const styles = StyleSheet.create({
-    container:{
-        height:14,
-        backgroundColor:color.paper
+    spacing: {
+        height: 14, 
+        backgroundColor: color.paper,
     }
 })
 

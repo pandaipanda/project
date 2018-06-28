@@ -9,24 +9,20 @@ import React, {PureComponent} from 'react'
 import {StyleSheet, View, Image, Text} from 'react-native'
 
 type Props = {
+    tintColor: any,
     normalImage: any,
     selectedImage: any,
     focused: boolean,
-    tintColor: any,
 }
 
-type State = {
-
-};
-
-class TabBarItem extends PureComponent<Props, State> {
+class TabBarItem extends PureComponent<Props> {
 
     render() {
-        let {normalImage, selectedImage, focused, tintColor} = this.props
+        let {focused, selectedImage, normalImage, tintColor} = this.props
         return (
             <Image
                 source={focused ? selectedImage : normalImage}
-                style={{width: 25, height: 25, tintColor: tintColor}}
+                style={{tintColor: tintColor, width: 25, height: 25}}
             />
         )
     }
