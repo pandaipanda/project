@@ -12,6 +12,7 @@
     "react-native-page-control": "^1.1.1",
     "react-native-refresh-list-view": "^1.0.8",
     "react-native-scrollable-tab-view": "^0.8.0",
+    "react-native-splash-screen": "^3.0.9",
     "react-navigation": "1.5.0"
   },
   "devDependencies": {

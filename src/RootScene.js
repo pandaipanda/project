@@ -8,6 +8,7 @@
 import React, {PureComponent} from 'react'
 import {StyleSheet, View, Image, Text} from 'react-native'
 import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation'
+import SplashScreen from 'react-native-splash-screen';
 
 import TabBarItem from './widget/TabBarItem'
 import color from './widget/color'
@@ -25,7 +26,7 @@ type Props = {
 
 type State = {
 
-}
+};
 
 const Tab = TabNavigator(
     {
@@ -116,6 +117,10 @@ const Navigator = StackNavigator(
 )
 
 class RootScene extends PureComponent<Props, State> {
+
+    componentDidMount() {
+        setTimeout(()=>{SplashScreen.hide()}, 2000, )
+    }
 
     render() {
         return (
