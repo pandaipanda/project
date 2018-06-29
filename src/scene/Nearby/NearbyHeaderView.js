@@ -19,7 +19,7 @@ type Props = {
 
 type State = {
 
-}
+};
 
 class NearbyHeaderView extends PureComponent<Props, State> {
 

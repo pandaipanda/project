@@ -20,7 +20,7 @@ type State = {
     typeIndex: number,
     data: Array<Object>,
     refreshState: number,
-}
+};
 
 class NearbyListScene extends PureComponent<Props, State> {
 

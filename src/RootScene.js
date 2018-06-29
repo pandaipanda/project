@@ -119,7 +119,13 @@ const Navigator = StackNavigator(
 class RootScene extends PureComponent<Props, State> {
 
     componentDidMount() {
-        setTimeout(()=>{SplashScreen.hide()}, 2000, )
+        this.timer = setTimeout(()=>{
+            SplashScreen.hide()
+        }, 1000)
+    }
+
+    componentWillUnmount() {
+        this.timer && clearTimeout(this.timer)
     }
 
     render() {
